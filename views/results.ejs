@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results Page</title>
+</head>
+<body>
+    <h1>Results Page !</h1>
+    <h3>Here you can find the Titles of the results</h3><br>
+
+    <ul>
+        <% var i = 1; movies.forEach(movie => { %>
+         <li><%= i %>. <%= movie.Title %>  </li>
+         <br>
+        <% i++; }) %>
+    </ul> 
+
+    <a href="/">Search Again !</a>
+</body>
+</html>
