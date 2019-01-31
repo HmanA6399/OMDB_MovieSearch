@@ -18,12 +18,17 @@ app.get('/results', (req, res) => {
             if (movies !== undefined) {
                 res.render("results", {movies : movies, title : query});                
             } else {
-                res.send("<h1>Nothing Found !!</h1>")
+            res.render("notFound", {title : "Try Again!"});
             }
         } else {
-            //Error !!
+            res.render("error", {errcode : err, title : "Error"});                
         }
     });
+});
+
+//fallback
+app.get('*', (req, res) => {
+    res.render("E404", {title: "E404"});
 });
 
 //Listen
