@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
 app.get('/results', (req, res) => {
     var query = req.query.q;
     request(`http://omdbapi.com/?s=${query}&apikey=thewdb`, (err, response, body) => {
-    console.log(`http://omdbapi.com/?s=${query}&apikey=thewdb`);    
     if ( !err && response.statusCode == 200 ) {
             results = JSON.parse(body);
             var movies = results.Search;
