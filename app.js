@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const request = require("request");
 app.set("view engine", "ejs");
-
+app.use(express.static("public"));
 //Root Route '/'
 app.get('/', (req, res) => {
-    res.render('home');
-})
+    res.render('home', {title : "Home"});
+});
 
 //Results Route '/results'
 app.get('/results', (req, res) => {
@@ -16,7 +16,7 @@ app.get('/results', (req, res) => {
             results = JSON.parse(body);
             var movies = results.Search;
             if (movies !== undefined) {
-                res.render("results", {movies : movies});                
+                res.render("results", {movies : movies, title : query});                
             } else {
                 res.send("<h1>Nothing Found !!</h1>")
             }
@@ -25,7 +25,6 @@ app.get('/results', (req, res) => {
         }
     });
 });
-
 
 //Listen
 app.listen(3000, () => {
