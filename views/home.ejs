@@ -1,8 +1,16 @@
 <% include partials/header %> 
-    <h1>Search for a Movie !</h1>
 
-    <form action="results" method="GET">
-        <input type="text" name="q" id="mv" placeholder="Enter a search query">
-        <input type="submit" name="sub" id="sub" value="Search!">
-    </form>
+    <div class="jumbotron text-center">
+        <h1>Search for a Movie !</h1>
+    </div>
+
+    <div class="container">
+        <form action="results" method="GET">
+            <div class="form-group">
+                <label for="mv">Search Keyword:</label>    
+                <input type="text" class="form-control" name="q" id="mv" placeholder="Enter a search query">
+                <br>
+                <input type="submit" class="btn btn-primary" name="sub" id="sub" value="Search!">
+            </div>
+        </form>
 <% include partials/footer %>
